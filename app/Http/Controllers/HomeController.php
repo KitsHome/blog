@@ -44,4 +44,25 @@ class HomeController extends Controller
             echo json_encode(array('code'=>-1,'msg'=>'参数无效','data'=>''));
         }
     }
+    /**
+     * vtp 获取token
+     */
+    public function token(){
+        //
+        $callback='http://www.theaged.club/token';
+        $url="https://open-oauth.jd.com/oauth2/to_login?app_key=A2808BE115B62436B78E22E1C6BC8B29&response_type=code&redirect_uri=".$callback."&state=20180416&scope=snsapi_base";
+        return redirect($url);
+    }
+
+    /**
+     * vtp 获取callback token$re
+     */
+    public function callback(Request $request){
+        if($request->has('code')){
+            $url="https://open-oauth.jd.com/oauth2/access_token?app_key=A2808BE115B62436B78E22E1C6BC8B29&app_secret=f92c98c61a7e4312ab453c107f3a52d1&grant_type=authorization_code&code=".$request->get('code');
+            return redirect($url);
+        }else{
+            dd($request->all());
+        }
+    }
 }

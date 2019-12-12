@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/token', 'HomeController@token')->name('home');//vtp获取token
+Route::get('/callback', 'HomeController@callback')->name('home');//vtp 获取 token callback
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/getcategory', 'HomeController@getcategory')->name('home');//获取分类
 Route::get('/getlist', 'HomeController@getlist')->name('home');//获取发布信息
