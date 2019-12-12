@@ -50,7 +50,7 @@ class HomeController extends Controller
     public function token(){
         //
         $callback='http://www.theaged.club/callback';
-        $url="https://open-oauth.jd.com/oauth2/to_login?app_key=A2808BE115B62436B78E22E1C6BC8B29&response_type=code&redirect_uri=".$callback."&state=20180416&scope=snsapi_base";
+        $url="https://open-oauth.jd.com/oauth2/to_login?app_key=A2808BE115B62436B78E22E1C6BC8B29&response_type=code&redirect_url=".$callback."&state=20180416&scope=snsapi_base";
         return redirect($url);
     }
 
